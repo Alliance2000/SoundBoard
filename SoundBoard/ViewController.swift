@@ -53,7 +53,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sound = sounds[indexPath.row]
         do {
-            audioPlayer = try AVAudioPlayer(data: sound.audio as Data!)
+            try audioPlayer = AVAudioPlayer(data: sound.audio as Data!)
+            audioPlayer?.play()
         } catch {}
         tableView.deselectRow(at: indexPath, animated: true)
     }
