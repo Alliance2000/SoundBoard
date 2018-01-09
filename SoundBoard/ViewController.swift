@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         do {
-            sounds = try context.fetch(Sound.fetchRequest())
+            try sounds = context.fetch(Sound.fetchRequest())
             tableView.reloadData()
         } catch {}
     }
@@ -69,7 +69,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
             do {
-                sounds = try context.fetch(Sound.fetchRequest())
+                try sounds = context.fetch(Sound.fetchRequest())
                 tableView.reloadData()
             } catch {}
         }
